@@ -159,25 +159,6 @@ TARGET_POWERHAL_VARIANT := redhookbay
 # Radio
 BOARD_PROVIDES_LIBRIL := true
 
-# Recovery
-BOARD_CANT_BUILD_RECOVERY_FROM_BOOT_PATCH := true
-TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
-COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
-TARGET_RECOVERY_DEVICE_MODULES := libinit_ctp librecovery_updater_ctp intel_prop thermald upi_ug31xx
-TARGET_RECOVERY_FSTAB := device/asus/T00F/recovery/root/etc/twrp.fstab
-
-#TWRP
-TW_THEME := portrait_hdpi
-RECOVERY_GRAPHICS_USE_LINELENGTH := true
-RECOVERY_SDCARD_ON_DATA := true
-TW_INCLUDE_CRYPTO := true
-TW_EXCLUDE_SUPERSU := true
-TW_NO_USB_STORAGE := true
-BOARD_HAS_NO_REAL_SDCARD := true
-TW_INCLUDE_NTFS_3G := true
-BOARD_SUPPRESS_EMMC_WIPE := true
-RECOVERY_VARIANT := twrp
-
 # Security
 BUILD_WITH_SECURITY_FRAMEWORK := chaabi_token
 BUILD_WITH_CHAABI_SUPPORT := true
@@ -206,3 +187,22 @@ endif
 
 # Use the non-open-source parts, if they're present
 -include vendor/asus/ctp-common/BoardConfigVendor.mk
+
+# Recovery
+BOARD_CANT_BUILD_RECOVERY_FROM_BOOT_PATCH := true
+TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
+COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
+TARGET_RECOVERY_DEVICE_MODULES := libinit_ctp librecovery_updater_ctp intel_prop thermald upi_ug31xx
+TARGET_RECOVERY_FSTAB := device/asus/T00F/rootdir/etc/fstab.redhookbay
+
+#TWRP
+TW_THEME := portrait_hdpi
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+RECOVERY_SDCARD_ON_DATA := true
+TW_INCLUDE_CRYPTO := true
+TW_EXCLUDE_SUPERSU := true
+TW_NO_USB_STORAGE := true
+BOARD_HAS_NO_REAL_SDCARD := true
+TW_INCLUDE_NTFS_3G := true
+BOARD_SUPPRESS_EMMC_WIPE := true
+RECOVERY_VARIANT := twrp
